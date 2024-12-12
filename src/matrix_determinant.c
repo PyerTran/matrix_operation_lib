@@ -19,23 +19,23 @@ double recursive_laplace_expansion(const Matrix_double a) {
         return a.content[0][0];
     }
 
-    Matrix_double temp = {
+    Matrix_double minor = {
         .n = a.n-1,
         .m = a.m-1,
-        .content = fill_content(temp.n, temp.m)
+        .content = fill_content(minor.n, minor.m)
     };
 
     double total = 0;
     double sign = 1;
 
     for (int column = 0; column < a.m; ++column) {
-        laplace_exclude(&temp, a, column);
+        laplace_exclude(&minor, a, column);
         if (column % 2) {
             sign = -1;
         } else {
             sign = 1;
         }
-        total += sign * a.content[0][column] * recursive_laplace_expansion(temp);
+        total += sign * a.content[0][column] * recursive_laplace_expansion(minor);
     }
 
     return total;

@@ -23,6 +23,7 @@ Matrix_double *transpose(const Matrix_double a);
 Matrix_double *multiplication(const Matrix_double a, const Matrix_double b);
 
 double recursive_laplace_expansion(const Matrix_double a);
+#define DETERMINANT(a) recursive_laplace_expansion(a)
 
 Matrix_double *inversion(const Matrix_double a);
 
