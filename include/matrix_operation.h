@@ -2,7 +2,7 @@
 #define MATRIX_OPERATIONS_H_
 
 double **fill_content(int n, int m);
-
+double **identity_matrix(int n, int m);
 
 typedef struct struct_matrix_double {
     int n;
