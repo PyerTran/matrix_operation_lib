@@ -10,7 +10,11 @@ typedef struct struct_matrix_double {
     double **content;
 } Matrix_double;
 
+void print_matrix_content(const Matrix_double a);
+
 Matrix_double init (int n, int m);
+
+Matrix_double matrix_copy(const Matrix_double a);
 
 Matrix_double *addition(const Matrix_double a, const Matrix_double b);
 
@@ -26,5 +30,7 @@ double recursive_laplace_expansion(const Matrix_double a);
 #define DETERMINANT(a) recursive_laplace_expansion(a)
 
 void matrix_gauss_pivot(Matrix_double *a);
+
+Matrix_double matrix_inversion_gauss_pivot(const Matrix_double a);
 
 #endif
